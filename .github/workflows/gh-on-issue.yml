@@ -16,6 +16,9 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Create content
         if: ${{ github.event.issue.user.login == 'aitorvs'}}
         run : |
@@ -26,7 +29,7 @@ jobs:
           touch $file
           echo "---" > $file
           echo "title: \"${{ github.event.issue.title }}\"" >> $file
-          echo "date: 2021-11-14T22:40:38Z" >> $file
+          echo "date: ${{ steps.date.outputs.date }}" >> $file
           echo "draft: false" >> $file
           echo "---" >> $file
           echo "" >> $file
