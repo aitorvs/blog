@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.85.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Nth first blog post &middot; Aitor Viana</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aitorvs.github.io/blog/"><h1>Aitor Viana</h1></a>
+      <p class="lead">
+       Random thoughts 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aitorvs.github.io/blog/">Home</a> </li>
+        <li><a href="/blog/about"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>My Nth first blog post</h1>
+  <time datetime=2021-12-08T00:00:00Z class="post-date">Wed, Dec 8, 2021</time>
+  <p>This is the Nth first blog post for my (new) blog. My requirements for blogging are simple, I just care about writing and I don&rsquo;t really want to waste a lot of time typing commands to create the blog, to format it, or publish it&hellip;or any of that.</p>
+<p>In the past I have tried several solutions such as:</p>
+<ul>
+<li>Medium &ndash; I liked it because it pretty much meet my requirements, I was just concern about writing. Sure if you have to write some code samples it is not the best experience but 🤷 . My main issue with Medium and why I moved away from it it is that I don&rsquo;t really like their business model</li>
+<li>Host my own blog &ndash; tried different things and the closest I got to settle on was using <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">GitHub pages</a> in combination with <a href="https://gohugo.io/">Hugo</a>. I liked it but the main friction point was it has some ceremony to setup and publish the blog post. And when some time passed between posts, I had just forgotten all about that process.</li>
+</ul>
+<p>Recently I stumbled upon <a href="https://github.com/oscarnevarezleal/gh-cms">this fantastic repo</a>. Which gave me all I wanted when it comes to blogging, easy one-off setup and then just concern about writing. And wait for it, your blog posts are a GitHub issue 🤯</p>
+<p><strong>How does it work?</strong></p>
+<ul>
+<li>Your repository pretty much hosts a GitHub action (GHA) and a config.toml file to configure the Hugo static site generator</li>
+<li>Every time an issue is created, the GHA will create a new blog post</li>
+<li>The html site will be created under the gh-pages branch</li>
+</ul>
+<p><strong>How to setup?</strong></p>
+<ul>
+<li>Clone this repo</li>
+<li>Delete the content/posts directory and modify the content/about.md file to say something about you</li>
+<li>Modify whatever you want from config.toml</li>
+<li>In <a href="https://github.com/aitorvs/blog/blob/main/.github/workflows/gh-on-issue.yml">.github/workflows/gh-on-issue.yml</a>
+<ul>
+<li>In the create content step, use your GitHub username in the IF statement</li>
+<li>In the create content step, use your username/repo in the line that executes the hugo command</li>
+</ul>
+</li>
+</ul>
+<p><strong>How to create a post?</strong>
+Just open an issue, start writing, and submit it. GHA will kick in and will create your html static site.
+One last thing, after the GHA succeeds, go to your repo settings -&gt; pages and in Source, select the gh-pages branch and save. After some minutes your site will be ready under your GitHub pages.</p>
+<p><strong>Contributions</strong></p>
+<ul>
+<li>Ensure that only issues created by my user will generate a new post.</li>
+<li>Use the date the issue was created on as post creation date.</li>
+</ul>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
