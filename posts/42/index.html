@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.85.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Better merge commit messages &middot; Aitor Viana</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aitorvs.github.io/blog/"><h1>Aitor Viana</h1></a>
+      <p class="lead">
+       Random thoughts 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aitorvs.github.io/blog/">Home</a> </li>
+        <li><a href="/blog/about"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Better merge commit messages</h1>
+  <time datetime=2022-01-01T00:00:00Z class="post-date">Sat, Jan 1, 2022</time>
+  <p>I have used different code management systems depending on the company, from GitHub to Phabricator. But all companies have a very similar pattern:</p>
+<ul>
+<li>open a PR (Diff in Phabricator)</li>
+<li>fill-in the PR (Diff) template</li>
+<li>submit PR (Diff)</li>
+</ul>
+<p>Generally developers put a lot of effort in the filling the appropriate information in the PR template, <a href="https://github.com/duckduckgo/Android/blob/develop/.github/PULL_REQUEST_TEMPLATE.md">this</a> is ours.
+And although templates may vary a bit from company to company, they generally all have the following:</p>
+<ul>
+<li>link to the internal task</li>
+<li>description</li>
+<li>testing section</li>
+</ul>
+<p>One of the issues that I have experience lately working with GitHub is that the default merge commit message is awful. By default:</p>
+<ul>
+<li>If the PR has only one commit, it uses that commit message</li>
+<li>If the PR has multiple commits
+<ul>
+<li>it uses as title the PR title</li>
+<li>as description, a bullet list of all commit messages</li>
+</ul>
+</li>
+</ul>
+<p>I use <code>git blame</code> a lot to get the context about the particular piece of code I am looking at. Our template gives me all what I need, because I have our internal task that has a lot of details about why we are doing this, the comprehensive PR description and how we tested it.
+But, because GitHub doesn not use that as merge commit message, all that context is now hidden behind 3-4 clicks. What I would want is to have our PR description used as the merge commit message.</p>
+<p>It has been tricky to find solutions for this as in my team not everybody uses the same development workflow. Some use the GitHub web UI to merge the PRs, while others 🙋‍♂️ use the <a href="https://cli.github.com/">GitHub CLI</a>.</p>
+<p>For the folks that use the web interface I found <a href="https://github.com/zachwhaley/squashed-merge-message">this</a> plugin that seems to work very well.</p>
+<p>For the rest I developed a simple solution based on GitHub CLI <a href="https://cli.github.com/manual/gh_extension">extensions</a>. You can find it <a href="https://github.com/aitorvs/gh-merge-pr">here</a>.</p>
+<p><strong>How does it work?</strong>
+If you have the GitHub CLI installed, installed the extension</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gh extension install aitorvs/gh-merge-pr
+</code></pre></div><p>and then run <code>gh merge-pr [#]</code>.</p>
+<p>The PR number is an optional parameter, if not provided it will try to merge the PR for the current branch, if it exists.</p>
+<p>That is all. Enjoy your clean and useful commit history.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
