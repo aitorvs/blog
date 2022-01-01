@@ -9,12 +9,12 @@
     <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://aitorvs.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Better merge commit messages</title>
-      <link>https://aitorvs.github.io/blog/posts/42/</link>
+      <link>https://aitorvs.github.io/blog/posts/43/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://aitorvs.github.io/blog/posts/42/</guid>
-      <description>I have used different code management systems depending on the company, from GitHub to Phabricator. But all companies have a very similar pattern:
- open a PR (Diff in Phabricator) fill-in the PR (Diff) template submit PR (Diff)  Generally developers put a lot of effort in the filling the appropriate information in the PR template, this is ours. And although templates may vary a bit from company to company, they generally all have the following:</description>
+      <guid>https://aitorvs.github.io/blog/posts/43/</guid>
+      <description>title: &amp;ldquo;Better merge commit messages&amp;rdquo; date: 2022-01-01 draft: false I have used different code management systems depending on the company, from GitHub to Phabricator. But all companies have a very similar pattern:
+ open a PR (Diff in Phabricator) fill-in the PR (Diff) template submit PR (Diff)  Generally developers put a lot of effort adding the appropriate information in the PR template, this is ours. And although templates may vary a bit from company to company, they generally all have the following:</description>
     </item>
     
     <item>
