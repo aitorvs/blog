@@ -9,12 +9,13 @@
     <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://aitorvs.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to organize your gradle modules</title>
-      <link>https://aitorvs.github.io/blog/posts/39/</link>
+      <link>https://aitorvs.github.io/blog/posts/40/</link>
       <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://aitorvs.github.io/blog/posts/39/</guid>
+      <guid>https://aitorvs.github.io/blog/posts/40/</guid>
       <description>As your application grows, you hopefully organize your code into several gradle (library) modules. You can do that to isolate/decouple features, or to build common libraries for your code base, etc.
-One pain point when starting doing this is that gradle modules tend to like to be in the project root folder, having a structure like the following: &amp;ndash; my-app | &amp;ndash; feature-a | &amp;ndash; feature-b | &amp;ndash; feature-c | &amp;ndash; lib-a | &amp;ndash; lib-b | &amp;ndash; lib-b</description>
+One pain point when starting doing this is that gradle modules tend to like to be in the project root folder, having a structure like the following:
+- my-app | - feature-a | - feature-b | - feature-c | - lib-a | - lib-b | - lib-b This is a very flat structure for my taste, it would be much better if we could organize our gradle modules like the following:</description>
     </item>
     
     <item>
