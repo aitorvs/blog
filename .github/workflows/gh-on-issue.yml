@@ -33,7 +33,7 @@ jobs:
           echo "draft: false" >> $file
           echo "---" >> $file
           echo "" >> $file
-          echo "${{ github.event.issue.body }}" >> $file
+          echo '${{ github.event.issue.body }}' >> $file
 
           hugo -D -b https://aitorvs.github.io/blog/ -t hyde
 
