@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.85.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GitHub CLI in my day to day workflow &middot; Aitor Viana</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aitorvs.github.io/blog/"><h1>Aitor Viana</h1></a>
+      <p class="lead">
+       Random thoughts 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aitorvs.github.io/blog/">Home</a> </li>
+        <li><a href="/blog/about"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>GitHub CLI in my day to day workflow</h1>
+  <time datetime=2022-01-09T00:00:00Z class="post-date">Sun, Jan 9, 2022</time>
+  <p>I hate context switching in general and that is why I try very hard not to have to switch tooling for as long as I can. In particular, when it comes to source code management, I try to do it all from the terminal.</p>
+<p>At DuckDuckGo we use GitHub as our source code management tool. And our day to day involves looking at issues, creating, reviewing, approving PRs, etc.
+I use Git from the command line and so, I do not like having to lift my hand off of the keyboard and reach out to the mouse just to go to GitHub to eg. review/search for some PR, or take a look at some issue. For that I use <a href="https://cli.github.com/">GitHub CLI</a></p>
+<p>Apart from the comprehensive <a href="https://cli.github.com/manual/">list of commands</a> GH CLI has, it allows to create <a href="https://cli.github.com/manual/gh_alias">aliases</a>, which is a bonus to my productivity.</p>
+<p>These are some of the automations that help me on a daily basis.</p>
+<h4 id="checkout-prs-that-i-need-to-review">Checkout PR(s) that I need to review</h4>
+<p>GitHub alias:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gh alias set co --shell &amp;apos;id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>gh pr list -L100 --assignee @me| fzf | cut -f1<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>; <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> gh pr checkout <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">&amp;&amp;</span> gh pr checks&amp;apos;
+</code></pre></div><p>From the command line I just execute <code>gh co</code> and it bring the list of all the open PRs assigned to me. Selecting one will automatically check it out locally so that I can start reviewing.</p>
+<h4 id="quickly-check-pr-diff">Quickly check PR diff</h4>
+<p>GitHub alias:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gh alias set diff --shell &amp;apos;id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>gh pr list -L100 | fzf | cut -f1<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>; <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> gh pr diff <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span>&amp;apos;
+</code></pre></div><p>Some times I just want to take a look at the PR diff, without leaving the terminal. Running <code>gh diff</code> will display a list of open PRs, selecting one will show the diff.</p>
+<p><img src="https://user-images.githubusercontent.com/6786896/148649199-ffc8b001-cf45-4c51-ac34-46e6752fd9b7.png" alt="image"></p>
+<p>One awesome thing is that <code>gh</code> respects the <code>PAGER</code> environment variable, so you can use <a href="https://github.com/dandavison/delta">git-delta</a> for that.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gh config set pager ＇delta -s＇
+</code></pre></div><p>The result is something like this.</p>
+<p><img src="https://user-images.githubusercontent.com/6786896/148649167-cbaed5cc-b7a1-4ddd-9724-0a96624d2958.png" alt="image"></p>
+<h4 id="open-pr-in-web-browser">Open PR in Web Browser</h4>
+<p>GitHub alias:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gh alias set prv --shell &amp;apos;id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>gh pr list -L100|fzf|cut -f1<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>; <span style="color:#f92672">[</span> -n $id <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> gh pr view --web <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span>&amp;apos;
+</code></pre></div><p>Commenting on a PR I am reviewing is something I do in the web browser. But opening any PR is normally 4-5 clicks away. Running <code>gh prv</code> displays a list of PRs so that I can quickly select one that will automatically open in the browser.</p>
+<p>The above are only some of the automations that I have. I have other automations for GH CLI that concern our internal tooling, eg. directly open the internal task referenced in a given PR&hellip;and many more.</p>
+<p>I hope this article has sparked your curiosity to check GH CLI out, I find it a really great tool.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
