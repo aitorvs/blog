@@ -9,20 +9,10 @@
     <lastBuildDate>Sun, 09 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://aitorvs.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitHub CLI in my day to day workflow</title>
-      <link>https://aitorvs.github.io/blog/posts/58/</link>
+      <link>https://aitorvs.github.io/blog/posts/60/</link>
       <pubDate>Sun, 09 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://aitorvs.github.io/blog/posts/58/</guid>
-      <description>I hate context switching in general and that is why I try very hard not to have to switch tooling for as long as I can. In particular, when it comes to source code management, I try to do it all from the terminal.
-At DuckDuckGo we use GitHub as our source code management tool. And our day to day involves looking at issues, creating, reviewing, approving PRs, etc. I use Git from the command line and so, I do not like having to lift my hand off of the keyboard and reach out to the mouse just to go to GitHub to eg.</description>
-    </item>
-    
-    <item>
-      <title>GitHub CLI in my day to day workflow</title>
-      <link>https://aitorvs.github.io/blog/posts/59/</link>
-      <pubDate>Sun, 09 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://aitorvs.github.io/blog/posts/59/</guid>
+      <guid>https://aitorvs.github.io/blog/posts/60/</guid>
       <description>I hate context switching in general and that is why I try very hard not to have to switch tooling for as long as I can. In particular, when it comes to source code management, I try to do it all from the terminal.
 At DuckDuckGo we use GitHub as our source code management tool. And our day to day involves looking at issues, creating, reviewing, approving PRs, etc. I use Git from the command line and so, I do not like having to lift my hand off of the keyboard and reach out to the mouse just to go to GitHub to eg.</description>
     </item>
