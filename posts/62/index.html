@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.85.0" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Better replacements for common CLI tools &middot; Aitor Viana</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://aitorvs.github.io/blog/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+
+  <body class=" ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://aitorvs.github.io/blog/"><h1>Aitor Viana</h1></a>
+      <p class="lead">
+       Random thoughts 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://aitorvs.github.io/blog/">Home</a> </li>
+        <li><a href="/blog/about"> About </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Better replacements for common CLI tools</h1>
+  <time datetime=2022-01-10T00:00:00Z class="post-date">Mon, Jan 10, 2022</time>
+  <p>CLI tools are a <a href="https://aitorvs.github.io/blog/posts/60/">big part</a> of my day to day. But some of the most common ones have not evolved much for a while.
+There are some good replacements for them.</p>
+<h3 id="bat-for-cat"><code>bat</code> for <code>cat</code></h3>
+<p><a href="https://t.co/q6ubwN86cE"><code>bat</code></a> is like <code>cat</code> but with syntax highlighting.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install bat
+$ alias cat<span style="color:#f92672">=</span>bat
+</code></pre></div><p><img src="https://user-images.githubusercontent.com/6786896/148684182-e1e1638a-515b-4911-97e2-7f7b432664c0.png" alt="image"></p>
+<h3 id="exa-for-ls"><code>exa</code> for <code>ls</code></h3>
+<p>Use it instead of <code>ls</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install exa
+$ alias ls<span style="color:#f92672">=</span>exa
+</code></pre></div><!-- raw HTML omitted -->
+<h3 id="fd-for-find"><code>fd</code> for <code>find</code></h3>
+<p>I find <a href="https://github.com/sharkdp/fd"><code>fd</code></a> faster and simpler alternative to <code>find</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install fd
+</code></pre></div><h3 id="fig-for-your-terminal"><code>fig</code> for your terminal</h3>
+<p>Super power your terminal with <a href="https://fig.io/"><code>fig</code></a></p>
+<!-- raw HTML omitted -->
+<h3 id="fzf-for-better-searches"><code>fzf</code> for better searches</h3>
+<p>Checkout the <a href="https://www.youtube.com/watch?v=qgG5Jhi_Els">demo</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install fzf
+
+<span style="color:#75715e"># Install useful key bindings and fuzzy completion:</span>
+<span style="color:#66d9ef">$(</span>brew --prefix<span style="color:#66d9ef">)</span>/opt/fzf/install
+</code></pre></div><hr>
+<p>Hope some of these tools increase your productivity or at least make your day to day more joyful.</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

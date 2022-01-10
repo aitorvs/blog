@@ -6,7 +6,19 @@
     <description>Recent content on Aitor Viana</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://aitorvs.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://aitorvs.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Better replacements for common CLI tools</title>
+      <link>https://aitorvs.github.io/blog/posts/62/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://aitorvs.github.io/blog/posts/62/</guid>
+      <description>CLI tools are a big part of my day to day. But some of the most common ones have not evolved much for a while. There are some good replacements for them.
+bat for cat bat is like cat but with syntax highlighting.
+$ brew install bat $ alias cat=bat exa for ls Use it instead of ls.
+$ brew install exa $ alias ls=exa fd for find I find fd faster and simpler alternative to find.</description>
+    </item>
+    
     <item>
       <title>GitHub CLI in my day to day workflow</title>
       <link>https://aitorvs.github.io/blog/posts/60/</link>
